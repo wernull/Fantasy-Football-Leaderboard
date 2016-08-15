@@ -1,0 +1,16 @@
+== README
+
+### Basic rails application with user accounts that connects to the yahoo sports api
+
+Create a yahoo sports dev account and set the following environment variables
+
+YAHOO_KEY
+YAHOO_SECRET
+
+YAHOO_CALLBACK # Absolute path yahoo redirects to after auth
+
+Create an account in this app and sign in
+
+go to /auth/yahoo to connect yahoo to this app
+
+go to /debug
