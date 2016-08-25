@@ -82,4 +82,6 @@ Rails.application.configure do
 
   # absolute path to redirect to after auth
   config.yahoo_callback = ENV['YAHOO_CALLBACK']
+
+  config.lock_app = ENV['LOCK_APP']
 end

@@ -1,6 +1,6 @@
 # User model
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :confirmable, :lockable,
+  devise :database_authenticatable, :registerable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
@@ -31,5 +31,9 @@ class User < ActiveRecord::Base
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def connected_to_yahoo?
+    self.yahoo_token.present? && self.yahoo_secret.present?
   end
 end

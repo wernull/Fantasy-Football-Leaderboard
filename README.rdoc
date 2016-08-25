@@ -2,15 +2,19 @@
 
 ### Basic rails application with user accounts that connects to the yahoo sports api
 
-Create a yahoo sports dev account and set the following environment variables
+Create a yahoo sports dev account https://developer.yahoo.com and set the following environment variables
 
 YAHOO_KEY
 YAHOO_SECRET
+YAHOO_CALLBACK # Absolute path yahoo redirects to after auth, must match callback domain in yahoo app setup
 
-YAHOO_CALLBACK # Absolute path yahoo redirects to after auth
+### Setup:
+`rake db:create`
+`rake db:migrate`
+`rake db:seed`
 
-Create an account in this app and sign in
+go to home page and click "Connect Yahoo! account"
 
-go to /auth/yahoo to connect yahoo to this app
+depending on dev environment, you many have to add a port to the callback url
 
-go to /debug
+once account is connected, set environment variable `lock_app` to `true` to disable the auth/yahoo and auth/yahoo/callback paths

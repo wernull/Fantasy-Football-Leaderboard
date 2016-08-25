@@ -1,2 +1,5 @@
-
-<p>Welcome Page</p>
+<% if current_user.connected_to_yahoo? %>
+  Connected!
+<% else %>
+  <%= link_to("Connect Yahoo! account", auth_yahoo_path) %>
+<% end %>

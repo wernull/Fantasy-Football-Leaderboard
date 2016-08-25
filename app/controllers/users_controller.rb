@@ -1,6 +1,5 @@
 # User stuff homie
 class UsersController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :admin_only, only: [:index]
@@ -102,7 +101,7 @@ class UsersController < ApplicationController
 
     current_user.update_columns(yahoo_token: token_data.to_json)
 
-    redirect_to teams_path
+    redirect_to root_path
   end
 
   private
