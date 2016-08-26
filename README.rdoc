@@ -13,7 +13,7 @@ YAHOO_CALLBACK # Absolute path yahoo redirects to after auth, must match callbac
 `rake db:migrate`
 `rake db:seed`
 
-go to home page and click "Connect Yahoo! account"
+go to /settings page and click "Connect Yahoo! account"
 
 depending on dev environment, you many have to add a port to the callback url
 

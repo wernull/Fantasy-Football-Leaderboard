@@ -101,7 +101,7 @@ class UsersController < ApplicationController
 
     current_user.update_columns(yahoo_token: token_data.to_json)
 
-    redirect_to root_path
+    redirect_to settings_path
   end
 
   private

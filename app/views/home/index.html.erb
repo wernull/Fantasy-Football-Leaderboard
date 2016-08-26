@@ -1,5 +1,5 @@
-<% if current_user.connected_to_yahoo? %>
-  Connected!
+<% if @current_user.connected_to_yahoo? %>
+  League:
 <% else %>
-  <%= link_to("Connect Yahoo! account", auth_yahoo_path) %>
+  No League Connected
 <% end %>

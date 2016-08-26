@@ -1,0 +1,8 @@
+<% if @current_user.connected_to_yahoo? %>
+  Choose League:
+  <% @league_list.each do |league| %>
+    <p><%= league['name'] %> | <%= league['league_key'] %></p>
+  <% end %>
+<% else %>
+  <%= link_to("Connect Yahoo! account", auth_yahoo_path) %>
+<% end %>
