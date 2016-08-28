@@ -1,8 +1,20 @@
 <% if @current_user.connected_to_yahoo? %>
-  Choose League:
-  <% @league_list.each do |league| %>
-    <p><%= league['name'] %> | <%= league['league_key'] %></p>
+  <%= form_tag("", method: "post") do %>
+    <%= label_tag(:league, "Choose League:") %><br/>
+    <% @league_list.each do |league| %>
+      <%= radio_button_tag(:league, league['league_key'], @current_user.league == league['league_key']) %>
+      <%= label_tag(:league, league['name']) %>
+      <br/>
+    <% end %>
+    <br/>
+    <br/>
+    <%= label_tag(:round, "Random Round:") %>
+    <%= text_field_tag(:round, @current_user.round) %>
+    <br/>
+    <br/>
+    <%= submit_tag("Save") %>
   <% end %>
+
 <% else %>
   <%= link_to("Connect Yahoo! account", auth_yahoo_path) %>
 <% end %>

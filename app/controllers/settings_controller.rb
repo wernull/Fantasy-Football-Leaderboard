@@ -1,7 +1,19 @@
 class SettingsController < ApplicationController
   def index
     @league_list = league_list
+    @league = @current_user.league
+    @round = @current_user.round
   end
+
+  def update
+    @current_user.league = params['league']
+    @current_user.round = params['round'].to_i
+    @current_user.save
+
+    redirect_to settings_path
+  end
+
+  private
 
   def league_list
     return unless @current_user.connected_to_yahoo?
